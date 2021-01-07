@@ -1,22 +1,31 @@
 <template>
   <div>
-    <p v-for="item in this.$store.state.news" v-bind:key="item.id">
-      <a v-bind:href="item.url">
-        {{ item.title }}
-      </a>
-      <small>{{ item.time_ago }} by
-        <!-- <router-link :to="'/user/'+item.user">{{ item.user }}</router-link> -->
-        <router-link :to="`/user/${item.user}`">{{ item.user }}</router-link>
-      </small>
-    </p>
+    <list-item></list-item>
   </div>
 </template>
 
 <script>
+import ListItem from "../components/ListItem.vue";
+// import bus from "../utils/bus.js";
+
 export default {
-  created() {
-    this.$store.dispatch("FETCH_NEWS");
+  components: {
+    ListItem,
   },
+  // created() {
+  //   bus.$emit("start:spinner");
+
+  //   setTimeout(() => {
+  //     this.$store.dispatch("FETCH_NEWS")
+  //       .then(() => {
+  //         console.log("received");
+  //         bus.$emit("end:spinner");
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
+  //   }, 3000);
+  // },
 };
 </script>
 

@@ -1,20 +1,34 @@
 <template>
   <div>
-      <p v-for="job in this.$store.state.jobs" v-bind:key="job.id">
-        <a :href="job.url">{{ job.title }}</a> &nbsp;
-        <small>{{job.time_ago}} &nbsp; {{ job.domain }}</small>
-      </p>
+    <list-item></list-item>
   </div>
 </template>
 
 <script>
+import ListItem from "../components/ListItem.vue";
+// import bus from "../utils/bus.js";
+
 export default {
-  created () {
-    this.$store.dispatch("FETCH_JOBS")
-  }
-}
+  components: {
+    ListItem,
+  },
+  // created() {
+  //   bus.$emit("start:spinner");
+
+  //   setTimeout(() => {
+  //     this.$store
+  //       .dispatch("FETCH_JOBS")
+  //       .then(() => {
+  //         console.log("received");
+  //         bus.$emit("end:spinner");
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
+  //   }, 3000);
+  // },
+};
 </script>
 
-<style>
-
-</style>
+<style scoped>
+</style> 
