@@ -14,22 +14,47 @@ function fetchJobsList() {
   return axios.get(`${config.baseUrl}jobs/1.json`);
 }
 
-function fetchAskList() {
-  return axios.get(`${config.baseUrl}ask/1.json`);
+async function fetchAskList() {
+  try {
+    const response = await axios.get(`${config.baseUrl}ask/1.json`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-function fetchList(pageName) {
-  return axios.get(`${config.baseUrl}${pageName}/1.json`);
+async function fetchList(pageName) {
+  try {
+    const response = await axios.get(`${config.baseUrl}${pageName}/1.json`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-function fetchUserInfo(userName) {
-  return axios.get(`${config.baseUrl}user/${userName}.json`);
+async function fetchUserInfo(userName) {
+  try {
+    const response = await axios.get(`${config.baseUrl}user/${userName}.json`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-function fetchCommentItem(id) {
-  return axios.get(`${config.baseUrl}item/${id}.json`)
+async function fetchCommentItem(id) {
+  try {
+    const response = await axios.get(`${config.baseUrl}item/${id}.json`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-
-
-export { fetchNewsList, fetchJobsList, fetchAskList, fetchList, fetchUserInfo, fetchCommentItem };
+export {
+  fetchNewsList,
+  fetchJobsList,
+  fetchAskList,
+  fetchList,
+  fetchUserInfo,
+  fetchCommentItem,
+};
